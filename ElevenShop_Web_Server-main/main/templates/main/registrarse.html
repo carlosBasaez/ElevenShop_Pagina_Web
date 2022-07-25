@@ -1,0 +1,59 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title%}Registrarse{% endblock %}
+
+{% block contenido %}
+<section class="inner-page">
+<form action="{% url 'registrarse' %}" method="POST"> {% csrf_token %}
+  <div style="text-align: center;">
+    <h3>&nbsp;</h3>
+    <h3>Registrarse en ElevenShop</h3>
+    <hr>
+    <p>Nombre completo</p>
+    <p>
+      <input type="text" name="nombre" placeholder="ejemplo:Sebastian Perez Perez" size="50">
+    </p>
+    <p>Rut</p>
+    <p>
+      <input type="text" name="rut" placeholder="12345678-9" size="50">
+    </p>
+    <p>Correo electronico</p>
+    <p>
+      <input type="text" name="email" id="" size="50" placeholder="ejemplo@ejemplo.com">
+    </p>
+    <p>Telefono</p>
+    <p>
+      <input type="text" name="fono" id="" size="50" placeholder="56910102020">
+    </p>
+    <p>Direccion</p>
+    <p>
+      <input type="text" name="direccion" placeholder="ejemplo: Calle Providencia 123" size="50">
+    </p>
+    <p>Ciudad</p>
+    <p>
+      <input type="text" name="ciudad" id="" size="50" placeholder="Santiago">
+    </p>
+    <p>Comuna</p>
+    <p>
+      <input type="text" name="comuna" id="" size="50" placeholder="Providencia">           
+    </p>
+    <p>contraseña</p>
+    <p>
+      <input type="password" name="password" id="" size="50">
+    </p>
+    <p>confirmar contraseña</p>
+    <p>
+      <input type="password" name="password_confirmacion" id="" size="50">
+    </p>              
+  </div>
+
+  <div style="text-align: center;">
+    <p>
+      <input type="submit" value="Registrarse" class="btn btn-success">
+      <a class="btn btn-secondary" href="{% url 'inicio_sesion' %}">Cancelar</a></p>
+    <p>&nbsp;</p>
+  </div>
+</form>
+</section>
+{% endblock %}

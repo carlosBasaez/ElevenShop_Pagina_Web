@@ -1,0 +1,33 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}Producto{% endblock %}
+
+{% block bread_title %}Detalle de Producto{% endblock %}
+
+{% block contenido %}
+<div style="margin-bottom:30px;">
+<form action="{% url 'producto_detalle' producto.Id_producto %}" method="POST">{% csrf_token %}
+    <section>
+        <label>ID Producto: {{producto.Id_producto}}</label><br>
+        <br>
+        <label>Nombre Completo</label><br>
+        <input type="text" name="nombre" size="50" value="{{producto.Nombre}}">
+        <br><br>
+        <label>Stock</label><br>
+        <input type="text" name="stock" size="50" value="{{producto.Stock}}">
+        <br><br>
+        <label>Valor</label><br>
+        <input type="text" name="valor" size="50" value="{{producto.Valor}}">
+        <br><br>
+        <label>Caracteristicas</label><br>
+        <input type="text" name="caracteristicas" size="100" value="{{producto.Caracteristicas}}">
+        <br><br>
+    </section>
+
+    <input type="submit" value="Guardar" class="btn btn-primary">
+</form>
+<br><br>
+    <a href="{% url 'producto_lista' %}"><button class="btn btn-secondary">Salir</button></a>
+</div>
+{% endblock %}

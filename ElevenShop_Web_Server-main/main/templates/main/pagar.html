@@ -1,0 +1,21 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Pagar{% endblock %}
+
+{% block bread_title %}Pagar{% endblock %}
+
+{% block contenido %}
+
+<section>
+    <form action="{{pago.Url}}" method="post">
+        <input type="hidden" name="token_ws" value="{{pago.Token}}" />
+        <div class="col">
+            <img class="crop" src="{% static 'main/img/Transbank.png' %}" width="150px"/>
+            <button type="submit" class="btn btn-primary">Pagar con Transbank</button>
+        </div>
+    </form>
+</section>
+  
+
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}Usuarios{% endblock %}
+
+{% block bread_title %}{{title}}{% endblock %}
+
+{% block contenido %}
+
+<!-- modificar lista pedido-->
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-6">
+                    <h3>
+                        Buscar Usuario
+                    </h3>
+                    <p>
+                        <form action="{% url 'usuario-lista' tipo %}" method="POST"> {% csrf_token %}
+                            <input type="text" name="rut" placeholder="12345678-9">
+                            <input type="submit" value="Buscar" class="btn btn-primary">
+                        </form>
+                    </p>
+                </div>
+                <div class="col-6">
+                    <h3>
+                        Crear Nuevo Usuario
+                    </h3>
+                    <p><a href="{% url 'usuario-detalle' '-' %}">
+                        <button class="btn btn-primary">Nuevo Usuario</button>
+                    </a></p>
+                </div>
+            </div>
+        </div>  
+    </section>
+
+    {% if usuarios == null %}
+    <section class="inner-page">
+      <div class="container">
+        <p>
+          No hay usuarios
+        </p>
+        <p>
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- modificar lista pedido-->
+    {% if usuarios != null %}
+    <section class="inner-page">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Rut</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Email</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Detalles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- modificar lista pedido-->
+          {% for u in usuarios %}
+          <tr>
+            <td scope="row">{{ u.rut }}</td>
+            <td>{{u.nombrecompleto}}</td>
+            <td>{{u.email}}</td>
+            <td>{{u.telefono}}</td>
+            <td><a href="{% url 'usuario-detalle' u.rut %}"><button type="button" class="btn btn-primary">Ver</button></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+    {% endif %}
+
+
+{% endblock %}

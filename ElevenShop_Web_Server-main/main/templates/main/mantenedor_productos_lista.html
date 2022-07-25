@@ -1,0 +1,53 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}Productos{% endblock %}
+
+{% block bread_title %}Lista de Productos{% endblock %}
+
+{% block contenido %}
+
+
+
+    {% if productos == null %}
+    <section class="inner-page">
+      <div class="container">
+        <p>
+          No hay productos
+        </p>
+        <p>
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- modificar lista pedido-->
+    {% if productos != null %}
+    <section class="inner-page">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Detalles</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- modificar lista pedido-->
+          {% for p in productos %}
+          <tr>
+            <td scope="row">{{ p.Id_producto }}</td>
+            <td><a class="tabla_link" href="{% url 'producto' p.Id_producto %}">{{p.Nombre}}</a></td>
+            <td>{{p.Valor}}</td>
+            <td>{{p.Stock}}</td>
+            <td><a href="{% url 'producto_detalle' p.Id_producto %}"><button type="button" class="btn btn-primary">Ver</button></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+    {% endif %}
+
+
+{% endblock %}

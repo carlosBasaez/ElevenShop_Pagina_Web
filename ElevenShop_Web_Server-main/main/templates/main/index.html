@@ -1,0 +1,283 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Pagina Inicio{% endblock %}
+
+{% block contenido %}
+
+  <!-- ======= Hero Section ======= -->
+  <section id="hero">
+    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
+
+      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
+
+      <div class="carousel-inner" role="listbox">
+
+        <!-- Slide 1 -->
+        <div class="carousel-item active" style="background-image: url({% static 'main/img/tienda.jpg' %})">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">Bienvenido a <span>ElevenShop</span></h2>
+              <p class="animate__animated animate__fadeInUp">La mejor tienda de ventas de componentes en Chile y el mundo</p>
+              <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Leer mas</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="carousel-item" style="background-image: url({% static 'main/img/procesadores11.jpg' %})">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">Nuevos Procesadores Intel 11th generacion</h2>
+              <p class="animate__animated animate__fadeInUp">Ya disponible la venta exclusiva de procesadores Intel de 11th generacion</p>
+              <a href="#procesador" class="btn-get-started animate__animated animate__fadeInUp scrollto">Echar un vistazo</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="carousel-item" style="background-image: url({% static 'main/img/servidores.jpg' %})">
+          <div class="carousel-container">
+            <div class="container">
+              <h2 class="animate__animated animate__fadeInDown">La mejor calidad en servidores</h2>
+              <p class="animate__animated animate__fadeInUp">Los mejores productos, accesorios y componentes para mejorar tu servidor lo encuentras aqui</p>
+              <a href="#servidor" class="btn-get-started animate__animated animate__fadeInUp scrollto">Echar un vistazo</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <a class="carousel-control-prev" href="#heroCarousel" role="button" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon bi bi-chevron-left" aria-hidden="true"></span>
+      </a>
+
+      <a class="carousel-control-next" href="#heroCarousel" role="button" data-bs-slide="next">
+        <span class="carousel-control-next-icon bi bi-chevron-right" aria-hidden="true"></span>
+      </a>
+    &nbsp;
+    </div>
+  </section><!-- End Hero -->
+
+    <!-- ======= procesador Section ======= -->
+    <section id="procesador" class="procesador">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Componentes PC</h2>
+          <p>Procesadores en venta</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <img class="crop" src="{% static 'main/img/ryzen5.jpg' %}" width="100" height="100" />
+              &nbsp;
+              <h4 href="">Ryzen 5 5600x</h4>
+              <p>Procesador Ryzen de quinta generacion</p>
+              <p>Precio: $180.000</p>
+              <a href="{% url 'producto' 1 %}" class="button">Echar un vistazo</a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <img class="crop" src="{% static 'main/img/i711th.png' %}" width="100" height="100" />
+              &nbsp;
+              <h4 href="">Intel Core i7 11th</h4>
+              <p>Procesador de 11th generacion intel </p>
+              <p>Precio: $200.000</p>
+              <a href="{% url 'producto' 2 %}" class="button">Echar un vistazo</a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <img class="crop" src="{% static 'main/img/i9990k.jpg' %}" width="100" height="100" />
+              &nbsp;
+              <h4 href="">Intel i9 9990K</h4>
+              <p>Procesador de 9th generacion intel </p>
+              <p>Precio: $450.000</p>
+              <a href="{% url 'producto' 3 %}" class="button">Echar un vistazo</a>
+            </div>
+          </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+<!-- ======= tarjetavideo Section ======= -->
+<section id="tarjetavideo" class="tarjetavideo">
+  <div class="container" data-aos="fade-up">
+
+    <div class="section-title">
+      <h2>Componentes PC</h2>
+      <p>Tarjetas de video en venta</p>
+    </div>
+
+    <div class="row">
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+        <div class="icon-box">
+          <img class="crop" src="{% static 'main/img/titanx.jpg' %}" width="150" height="150" />
+          &nbsp;
+          <h4 href="">Nvidia Titan X</h4>
+          <p>Tarjeta gama ultra para mejor rendimiento </p>
+          <p>Precio: $800.000</p>
+          <a href="{% url 'producto' 4 %}" class="button">Echar un vistazo</a>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+        <div class="icon-box">
+          <img class="crop" src="{% static 'main/img/rx580.jpg' %}" width="150" height="150" />
+          &nbsp;
+          <h4 href="">AMD Radeon RX580</h4>
+          <p>Tarjeta de video Radeon de 8GB para videojuegos </p>
+          <p>Precio: $300.000</p>
+          <a href="{% url 'producto' 5 %}" class="button">Echar un vistazo</a>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+        <div class="icon-box">
+          <img class="crop" src="{% static 'main/img/1650s.jpg' %}" width="150" height="150" />
+          &nbsp;
+          <h4 href="">Nvidia 1650Super </h4>
+          <p>Tarjeta Nvidia de gama alta para videojuegos </p>
+          <p>Precio: $320.000</p>
+          <a href="{% url 'producto' 6 %}" class="button">Echar un vistazo</a>
+        </div>
+      </div>
+
+  </div>
+</section><!-- End Services Section -->
+&nbsp;
+&nbsp;
+
+    <!-- ======= almacenamiento Section ======= -->
+    <section id="almacenamiento" class="almacenamiento">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Componentes Servidores</h2>
+          <p>Almacenamiento en venta</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <img class="crop" src="{% static 'main/img/ssd1tb.jpg' %}" width="150" height="150" />
+              &nbsp;
+              <h4 href="">WD Blue 1TB </h4>
+              <p>Disco de estado solido de 1TB de almacenamiento</p>
+              <p>Precio: $80.000</p>
+              <a href="{% url 'producto' 7 %}" class="button">Echar un vistazo</a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <img class="crop" src="{% static 'main/img/8tbhdd.jpg' %}" width="150" height="150" />
+              &nbsp;
+              <h4 href="">WD Purple 8TB</h4>
+              <p>Disco duro de 8TB de almacenamiento</p>
+              <p>Precio: $150.000</p>
+              <a href="{% url 'producto' 8 %}" class="button">Echar un vistazo</a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <img class="crop" src="{% static 'main/img/extern1tb.jpg' %}" width="150" height="150" />
+              &nbsp;
+              <h4 href="">WD disco externo 1TB </h4>
+              <p>Disco duro externo de 1TB con USB 3.0 </p>
+              <p>Precio: $80.000</p>
+              <a href="{% url 'producto' 9 %}" class="button">Echar un vistazo</a>
+            </div>
+          </div>
+
+      </div>
+    </section><!-- End Services Section -->
+
+    <!-- ======= servidores Section ======= -->
+    <section id="servidor" class="servidor">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Componentes Servidores</h2>
+          <p>Almacenamiento en venta</p>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box">
+              <img class="crop" src="{% static 'main/img/servercisco.jpg' %}" width="150" height="150" />
+              &nbsp;
+              <h4 href="">Servidor Cisco UCS-SPR-C240M4-P1 </h4>
+              <p>Servidor Cisco con Intel Xeon dual</p>
+              <p>Precio: $500.000</p>
+              <a href="{% url 'producto' 10 %}" class="button">Echar un vistazo</a>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <img class="crop" src="{% static 'main/img/serverdell.jpg' %}" width="150" height="150" />
+              &nbsp;
+              <h4 href="">Server Dell PowerEdge T40</h4>
+              <p>Servidor con Intel Xeon y 8GB de ram </p>
+              <p>Precio: $600.000</p>
+              <a href="{% url 'producto' 11 %}" class="button">Echar un vistazo</a>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+            <div class="icon-box">
+              <img class="crop" src="{% static 'main/img/serverhp.jpg' %}" width="150" height="150" />
+              &nbsp;
+              <h4 href="">Servidor HP ProLiant ML30 </h4>
+              <p>Servidor con Intel de 9na generacion </p>
+              <p>Precio: $450.000</p>
+              <a href="{% url 'producto' 12 %}" class="button">Echar un vistazo</a>
+            </div>
+          </div>
+
+      </div>
+    </section><!-- End Services Section -->>
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container" data-aos="fade-up">
+
+        <div class="section-title">
+          <h2>Conozcanos</h2>
+          <p>Acerca de nosotros</p>
+        </div>
+
+        <div class="row content">
+          <div class="col-lg-6">
+            <p>
+              Somos una tienda de ventas de componentes de pc tanto como para el Gaming como para servidores avanzados
+            </p>
+            <ul>
+              <li><i class="ri-check-double-line"></i> Nuestro compromiso es asegurar la venta de los mejores productos</li>
+              <li><i class="ri-check-double-line"></i> Garantia Extendida de todos los productos por 1 año</li>
+              <li><i class="ri-check-double-line"></i> Envios en Chile y el mundo</li>
+            </ul>
+          </div>
+          <div class="col-lg-6 pt-4 pt-lg-0">
+            <p>
+              Esta empresa nacio con las ganas de vender los mejores productos tanto en Chile como en el mundo
+              de esta forma hemos alcanzado una fama la cual nos posiciona como la 5ta mejor empresa para comprar
+              productos electronicos, con envios rapidos y seguimiento para mayor seguridad y confianza
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section><!-- End About Section -->
+
+
+  
+    
+
+
+
+{% endblock %}
+

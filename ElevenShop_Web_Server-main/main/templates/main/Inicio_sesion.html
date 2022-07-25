@@ -1,0 +1,37 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Inicio Sesion{% endblock %}
+
+{% block bread_title %}Inicio Sesion{% endblock %}
+
+{% block contenido %}
+<section class="inner-page">
+  <form action="" method="POST">{% csrf_token %}
+    <div style="text-align: center;">
+      <h3>&nbsp;</h3>
+      <h3>Iniciar sesion en ElevenShop</h3>
+          &nbsp;Rut              &nbsp;
+            <p>
+              <input type="text" name="rut_field" placeholder="12345678-9" size="50">
+            &nbsp; </p>
+            <p>Contraseña&nbsp;              </p>
+            <p>
+              <input type="password" name="pass_field" id="" size="50">
+              &nbsp;
+      </p>
+            <p>&nbsp;</p>
+            <a class="pass_forgot" href="{% url 'CambiarClave' %}">¿Olvido su contraseña?</a>
+            <p>&nbsp;</p>
+    </div>
+
+    <div style="text-align: center;">
+      <p><input class="login_button" type="submit" value="Aceptar"></p>
+      <p>&nbsp;</p>
+      <p>¿usuario nuevo? <a class="registrarse" href="{% url 'registrarse' %}">Registrese ahora</a></p>
+    </div>
+  </form>
+</section>
+
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "main/base.html" %}
+
+{% load static %}
+
+{% block title %}Pagado{% endblock %}
+
+{% block bread_title %}Pagado{% endblock %}
+
+{% block contenido %}
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div style="text-align: center;" class="container">
+
+        <ol>
+          <li><a href="index.html">Inicio</a></li>
+        </ol>
+        <h2>Pedido Comprado</h2>
+          <p>Su pedido ha sido realizado, muchas gracias por comprar en Elevenshop</p>
+          <p>Se le enviara un correo con la informacion</p>
+          <p><a href="{% url 'pedidos' %}"><input class="login_button" type="submit" value="Aceptar"></a></p>
+      </div>
+    </section>
+{% endblock %}

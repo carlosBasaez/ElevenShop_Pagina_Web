@@ -1,0 +1,55 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Detalle del pedido{% endblock %}
+
+{% block bread_title %}Detalle del Pedido{% endblock %}
+
+{% block contenido %}
+  
+    <!-- modificar lista pedido-->
+    {% if lista_productos != null %}
+    <section class="inner-page">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id Producto</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Cantidad</th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <!-- modificar lista pedido-->
+          {% for prod in lista_productos %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{prod.IdProducto}}</td>
+            <td><a class="tabla_link" href="{% url 'producto' prod.IdProducto %}">{{prod.Nombre}}</a></td>
+            <td>{{prod.Valor}}</td>
+            <td>{{prod.Cantidad}}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+ 
+      </table>
+    </section>
+    {% endif %}
+    <p>Valor Total: {{valortotal}}</p>
+    {% if pedido.Id_estado == 0 %}
+    <p><a href="{% url 'pagar' pedido.Id_pedido %}"><input class="login_button" type="submit" value="Comprar"></a></p>
+    {% endif %}
+    {% if pedido.Id_estado == 1 and request.session.usuario_bodeguero %}
+    <p><a href="{% url 'pedido_estado' pedido.Id_pedido 2 %}"><input class="btn btn-primary" type="submit" value="Empaquetado"></a></p>
+    {% endif %}
+    {% if pedido.Id_estado == 2 and request.session.usuario_despachador %}
+    <p><a href="{% url 'pedido_estado' pedido.Id_pedido 3 %}"><input class="btn btn-primary" type="submit" value="Enviado"></a></p>
+    {% endif %}
+    {% if pedido.Id_estado == 3 and request.session.usuario_despachador %}
+    <p><a href="{% url 'pedido_estado' pedido.Id_pedido 4 %}"><input class="btn btn-primary" type="submit" value="Entregado"></a></p>
+    {% endif %}
+  
+
+{% endblock %}

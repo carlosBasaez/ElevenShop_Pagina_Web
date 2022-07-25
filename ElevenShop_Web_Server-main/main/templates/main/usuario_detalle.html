@@ -1,0 +1,62 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}Usuario{% endblock %}
+
+{% block bread_title %}Detalle de Usuarios{% endblock %}
+
+{% block contenido %}
+<div style="margin-bottom:30px;">
+<form action="{% url 'usuario-detalle' rut %}" method="POST">{% csrf_token %}
+    <section>
+        <h3>Usuario</h3>
+        <label>Rut</label><br>
+        <input type="text" name="rut" placeholder="12345678-9" size="50" value="{{rut}}">
+        <br><br>
+        <label>Nombre Completo</label><br>
+        <input type="text" name="nombre" size="50" value="{{usuario.nombrecompleto}}">
+        <br><br>
+        <label>Correo Electronico</label><br>
+        <input type="text" name="email" size="50" value="{{usuario.email}}">
+        <br><br>
+        <label>Telefono</label><br>
+        <input type="text" name="telefono" size="50" value="{{usuario.telefono}}">
+        <br><br>
+        <label>Password</label>
+        <span style="font-size:10px;"> (Solo disponible para la creacion del usuario)</span>
+        <br>
+        <input type="text" name="password" size="50" value="{{usuario.pass}}">
+    </section>
+
+    <section>
+        <h3>Cliente</h3>
+        <input type="checkbox" name="isCliente" {% if cliente is not None %}checked{% endif %}>
+        <label>Habilitado</label>
+        <br><br>
+        <label>Direccion</label><br>
+        <input type="text" name="direccion" size="50" value="{{cliente.direccion}}">
+        <br><br>
+        <label>Ciudad</label><br>
+        <input type="text" name="ciudad" size="50" value="{{cliente.ciudad}}">
+        <br><br>
+        <label>Comuna</label><br>
+        <input type="text" name="comuna" size="50" value="{{cliente.comuna}}">
+    </section>
+
+    <section>
+        <h3>Roles</h3>
+        <input type="checkbox" name="isAdministrador" {% if administrador is not None %}checked{% endif %}>
+        <label>Administrador</label>
+        <br><br>
+        <input type="checkbox" name="isBodeguero" {% if bodeguero is not None %}checked{% endif %}>
+        <label>Bodeguero</label>
+        <br><br>
+        <input type="checkbox" name="isDespachador" {% if despachador is not None %}checked{% endif %}>
+        <label>Despachador</label>
+    </section>
+
+
+    <input type="submit" value="Guardar" class="btn btn-primary">
+</form>
+</div>
+{% endblock %}

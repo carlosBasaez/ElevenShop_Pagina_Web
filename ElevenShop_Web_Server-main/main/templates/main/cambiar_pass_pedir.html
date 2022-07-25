@@ -1,0 +1,22 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block bread_title %}Cambiar Clave{% endblock %}
+{% block title %}Cambiar Clave{% endblock %}
+
+{% block contenido %}
+
+
+<section>
+    <form action="{% url 'CambiarClave' %}" method="POST"> {% csrf_token %}
+        <div class="form-group">
+          <label for="rut">Ingresar el Rut</label>
+    
+          <input type="text" class="form-control" name="rut" id="rut" size="10" placeholder="12345678-9">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Solicitar</button>
+    </form>
+</section>
+
+{% endblock %}

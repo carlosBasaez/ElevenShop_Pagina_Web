@@ -1,0 +1,68 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block bread_title %}{{producto.Nombre}}{% endblock %}
+
+{% block contenido %}
+
+
+  <!-- ======= Portfolio Details Section ======= -->
+  <section id="portfolio-details" class="portfolio-details">
+    <div class="container">
+
+      <div class="row gy-4">
+
+        <div class="col-lg-8">
+          <div class="portfolio-details-slider swiper-container">
+            <div class="swiper-wrapper align-items-center">
+
+              <div class="swiper-slide" >
+                <img src="{% static 'main/img/default-product.png' %}" alt="" width="100%" height="100%">
+              </div>
+
+              <div class="swiper-slide">
+                <img src="{% static 'main/img/default-product.png' %}" alt="" width="100%" height="100%">
+              </div>
+
+              <div class="swiper-slide">
+                <img src="{% static 'main/img/default-product.png' %}" alt="" width="100%" height="100%">
+              </div>
+
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+
+        <div class="col-lg-4">
+          <div style='height:100px; margin-top:10px;'>
+            <a class="login_button" href="{% url 'carrito_compras_add' producto.Id_producto %}">Agregar al Carro</a>
+          </div>
+          <div class="portfolio-info">
+            <h3>Información del producto</h3>
+            <ul>
+              <li><strong>Precio</strong>: {{valor}}</li>
+              <li><strong>Marca</strong>: Generico</li>
+              <li><strong>Fecha lanzamiento</strong>: 3 Marzo, 2018</li>
+
+            </ul>
+          </div>
+          <div class="portfolio-description">
+            <h2>Caracteristicas del producto</h2>
+            <p><strong>
+              {{producto.Nombre}}
+            </strong></p>
+            <p>
+              {{producto.Caracteristicas}}
+              <br>
+            </p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section><!-- End Portfolio Details Section -->
+
+
+
+{% endblock %}

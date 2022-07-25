@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}ElevenShop{% endblock %}</title>
+</head>
+<body>
+    <!-- Navegacion -->
+    <h1>Barra navegacion</h1>
+    <ul>
+        <li>
+            <a href="{% url 'home' %}">Home</a>
+        </li>
+        <li>
+            <a href="/about/">about</a>
+        </li>
+        <li>
+            <a href="{% url 'about' %}">about</a>
+        </li>
+    </ul>
+
+    <!-- Contenido (Template Tags) -->
+    {% block contenido %}default_block_contenido{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,86 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Carrito de Compras{% endblock %}
+
+{% block bread_title %}Carrito de Compras{% endblock %}
+
+{% block contenido %}
+    {% if lista_productos == null %}
+    <section class="inner-page">
+      <div class="container">
+        <p>
+          Carrito de compras vacio
+        </p>
+      </div>
+    </section>
+    {% endif %}
+
+    {% if lista_productos != null %}
+    <section class="inner-page">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id Producto</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Precio Unitario</th>
+            <th scope="col">Cantidad</th>
+            <th scope="col">Precio</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for prod in lista_productos %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{prod.datos.IdProducto}}</td>
+            <td><a class="tabla_link" href="{% url 'producto' prod.datos.IdProducto %}">{{prod.datos.Nombre}}</a></td>
+            <td>{{prod.clp}}</td>
+            <td>{{prod.datos.Cantidad}}</td>
+            <td>{{prod.clp_total}}</td>
+            <td>
+            <a href="{% url 'carrito_compras_add' prod.datos.IdProducto %}"><img class="tabla_img" src="{% static 'main/img/cruz.png' %}"/></a>
+            <a href="{% url 'carrito_compras_remove' prod.datos.IdProducto %}"><img class="tabla_img" src="{% static 'main/img/menos.png' %}"/></a>
+            <a href="{% url 'carrito_compras_delete' prod.datos.IdProducto %}"><img class="tabla_img" src="{% static 'main/img/equis.png' %}"/></a>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <p>Total {{valortotal}}</p>
+      {% if request.session.usuario_rut != null %}
+        {% if request.session.usuario_cliente %}
+          <a href="{% url 'reservar' %}">
+          <button type="button" class="btn btn-success" >Realizar Pedido</button>
+          </a>
+        {%else%}
+          No se puede realizar pedido si no eres usuario cliente
+        {%endif%}
+      {% else %}
+        <p>Se requiere iniciar sesion</p>
+        <a href="{% url 'inicio_sesion' %}">
+        <button type="button" class="btn btn-success">Iniciar Sesion</button>
+        </a>
+      {% endif %}
+        <a href="{% url 'home' %}">
+        <button type="button" class="btn btn-primary">Seguir Comprando</button>
+        </a>
+      {% if lista_productos != null %}
+        <a href="{% url 'carrito_delete' %}">
+        <button type="button" class="btn btn-danger">Eliminar Carrito</button>
+        </a>
+      {% endif %}    
+    </section>
+    {% endif %}
+
+
+
+{% endblock %}
+
+{% block js_files %}
+<script src="{% static 'main/js/carrito_compra.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,68 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Pedidos{% endblock %}
+
+{% block bread_title %}Pedidos{% endblock %}
+
+{% block contenido %}
+    <!-- modificar lista pedido-->
+    {% if pedidos == null %}
+    <section class="inner-page">
+      <div class="container">
+        <p>
+          No hay pedidos
+        </p>
+      </div>
+    </section>
+    {% endif %}
+
+    <!-- modificar lista pedido-->
+    {% if pedidos != null %}
+    <section class="inner-page">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Id Pedido</th>
+            <th scope="col">Fecha</th>
+            <th scope="col">Valor</th>
+            <th scope="col">Estado</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- modificar lista pedido-->
+          {% for p in lista_pedidos %}
+          <tr>
+            <th scope="row">{{ forloop.counter }}</th>
+            <td>{{p.0.Id_pedido}}</td>
+            <td>{{p.0.Fecha}}</td>
+            <td>{{p.1}}</td>
+            <td>
+            {% if p.0.Id_estado == 0 %}
+            <span>Reservado</span>
+            {% elif p.0.Id_estado == 1 %}
+            <span>Pagado</span>
+            {% elif p.0.Id_estado == 2 %}
+            <span>En Bodega</span>
+            {% elif p.0.Id_estado == 3 %}
+            <span>En Despacho</span>
+            {% elif p.0.Id_estado == 4 %}
+            <span>Entregado</span>
+            {% elif p.0.Id_estado == 5 %}
+            <span>Cancelado</span>
+            {% else %}
+            -
+            {% endif %}
+            </td>
+            <td><a href="{% url 'pedido_detalle' p.0.Id_pedido %}"><input class="login_button" type="submit" value="Ver"></a></td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+    {% endif %}
+
+  
+
+{% endblock %}

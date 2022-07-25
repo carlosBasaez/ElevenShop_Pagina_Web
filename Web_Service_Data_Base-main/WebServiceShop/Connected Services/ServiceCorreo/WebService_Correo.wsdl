@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="SendReserva">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rut" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_pedido" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendReservaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendReservaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendPago">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rut" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="id_pedido" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendPagoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendPagoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendUsuarioNuevo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rut" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendUsuarioNuevoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendUsuarioNuevoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCambioContraseña">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rut" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCambioContraseñaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendCambioContraseñaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendNewCambioContraseña">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rut" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="token" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendNewCambioContraseñaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendNewCambioContraseñaResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendActualizacionUsuario">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="rut" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendActualizacionUsuarioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendActualizacionUsuarioResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendPedidoDespacho">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pedido_id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendPedidoDespachoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendPedidoDespachoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEntregado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pedido_id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEntregadoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendEntregadoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEnvio">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pedido_id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendEnvioResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendEnvioResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCancelado">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pedido_id" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="email" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SendCanceladoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SendCanceladoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="SendReservaSoapIn">
+    <wsdl:part name="parameters" element="tns:SendReserva" />
+  </wsdl:message>
+  <wsdl:message name="SendReservaSoapOut">
+    <wsdl:part name="parameters" element="tns:SendReservaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendPagoSoapIn">
+    <wsdl:part name="parameters" element="tns:SendPago" />
+  </wsdl:message>
+  <wsdl:message name="SendPagoSoapOut">
+    <wsdl:part name="parameters" element="tns:SendPagoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendUsuarioNuevoSoapIn">
+    <wsdl:part name="parameters" element="tns:SendUsuarioNuevo" />
+  </wsdl:message>
+  <wsdl:message name="SendUsuarioNuevoSoapOut">
+    <wsdl:part name="parameters" element="tns:SendUsuarioNuevoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendCambioContraseñaSoapIn">
+    <wsdl:part name="parameters" element="tns:SendCambioContraseña" />
+  </wsdl:message>
+  <wsdl:message name="SendCambioContraseñaSoapOut">
+    <wsdl:part name="parameters" element="tns:SendCambioContraseñaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendNewCambioContraseñaSoapIn">
+    <wsdl:part name="parameters" element="tns:SendNewCambioContraseña" />
+  </wsdl:message>
+  <wsdl:message name="SendNewCambioContraseñaSoapOut">
+    <wsdl:part name="parameters" element="tns:SendNewCambioContraseñaResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendActualizacionUsuarioSoapIn">
+    <wsdl:part name="parameters" element="tns:SendActualizacionUsuario" />
+  </wsdl:message>
+  <wsdl:message name="SendActualizacionUsuarioSoapOut">
+    <wsdl:part name="parameters" element="tns:SendActualizacionUsuarioResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendPedidoDespachoSoapIn">
+    <wsdl:part name="parameters" element="tns:SendPedidoDespacho" />
+  </wsdl:message>
+  <wsdl:message name="SendPedidoDespachoSoapOut">
+    <wsdl:part name="parameters" element="tns:SendPedidoDespachoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendEntregadoSoapIn">
+    <wsdl:part name="parameters" element="tns:SendEntregado" />
+  </wsdl:message>
+  <wsdl:message name="SendEntregadoSoapOut">
+    <wsdl:part name="parameters" element="tns:SendEntregadoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendEnvioSoapIn">
+    <wsdl:part name="parameters" element="tns:SendEnvio" />
+  </wsdl:message>
+  <wsdl:message name="SendEnvioSoapOut">
+    <wsdl:part name="parameters" element="tns:SendEnvioResponse" />
+  </wsdl:message>
+  <wsdl:message name="SendCanceladoSoapIn">
+    <wsdl:part name="parameters" element="tns:SendCancelado" />
+  </wsdl:message>
+  <wsdl:message name="SendCanceladoSoapOut">
+    <wsdl:part name="parameters" element="tns:SendCanceladoResponse" />
+  </wsdl:message>
+  <wsdl:portType name="WebService_CorreoSoap">
+    <wsdl:operation name="SendReserva">
+      <wsdl:input message="tns:SendReservaSoapIn" />
+      <wsdl:output message="tns:SendReservaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendPago">
+      <wsdl:input message="tns:SendPagoSoapIn" />
+      <wsdl:output message="tns:SendPagoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendUsuarioNuevo">
+      <wsdl:input message="tns:SendUsuarioNuevoSoapIn" />
+      <wsdl:output message="tns:SendUsuarioNuevoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCambioContraseña">
+      <wsdl:input message="tns:SendCambioContraseñaSoapIn" />
+      <wsdl:output message="tns:SendCambioContraseñaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendNewCambioContraseña">
+      <wsdl:input message="tns:SendNewCambioContraseñaSoapIn" />
+      <wsdl:output message="tns:SendNewCambioContraseñaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendActualizacionUsuario">
+      <wsdl:input message="tns:SendActualizacionUsuarioSoapIn" />
+      <wsdl:output message="tns:SendActualizacionUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendPedidoDespacho">
+      <wsdl:input message="tns:SendPedidoDespachoSoapIn" />
+      <wsdl:output message="tns:SendPedidoDespachoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEntregado">
+      <wsdl:input message="tns:SendEntregadoSoapIn" />
+      <wsdl:output message="tns:SendEntregadoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendEnvio">
+      <wsdl:input message="tns:SendEnvioSoapIn" />
+      <wsdl:output message="tns:SendEnvioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendCancelado">
+      <wsdl:input message="tns:SendCanceladoSoapIn" />
+      <wsdl:output message="tns:SendCanceladoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="WebService_CorreoSoap" type="tns:WebService_CorreoSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendReserva">
+      <soap:operation soapAction="http://tempuri.org/SendReserva" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendPago">
+      <soap:operation soapAction="http://tempuri.org/SendPago" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUsuarioNuevo">
+      <soap:operation soapAction="http://tempuri.org/SendUsuarioNuevo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCambioContraseña">
+      <soap:operation soapAction="http://tempuri.org/SendCambioContraseña" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendNewCambioContraseña">
+      <soap:operation soapAction="http://tempuri.org/SendNewCambioContraseña" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendActualizacionUsuario">
+      <soap:operation soapAction="http://tempuri.org/SendActualizacionUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendPedidoDespacho">
+      <soap:operation soapAction="http://tempuri.org/SendPedidoDespacho" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEntregado">
+      <soap:operation soapAction="http://tempuri.org/SendEntregado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEnvio">
+      <soap:operation soapAction="http://tempuri.org/SendEnvio" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCancelado">
+      <soap:operation soapAction="http://tempuri.org/SendCancelado" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="WebService_CorreoSoap12" type="tns:WebService_CorreoSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="SendReserva">
+      <soap12:operation soapAction="http://tempuri.org/SendReserva" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendPago">
+      <soap12:operation soapAction="http://tempuri.org/SendPago" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendUsuarioNuevo">
+      <soap12:operation soapAction="http://tempuri.org/SendUsuarioNuevo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCambioContraseña">
+      <soap12:operation soapAction="http://tempuri.org/SendCambioContraseña" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendNewCambioContraseña">
+      <soap12:operation soapAction="http://tempuri.org/SendNewCambioContraseña" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendActualizacionUsuario">
+      <soap12:operation soapAction="http://tempuri.org/SendActualizacionUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendPedidoDespacho">
+      <soap12:operation soapAction="http://tempuri.org/SendPedidoDespacho" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEntregado">
+      <soap12:operation soapAction="http://tempuri.org/SendEntregado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendEnvio">
+      <soap12:operation soapAction="http://tempuri.org/SendEnvio" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendCancelado">
+      <soap12:operation soapAction="http://tempuri.org/SendCancelado" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="WebService_Correo">
+    <wsdl:port name="WebService_CorreoSoap" binding="tns:WebService_CorreoSoap">
+      <soap:address location="https://localhost:44369/WebService_Correo.asmx" />
+    </wsdl:port>
+    <wsdl:port name="WebService_CorreoSoap12" binding="tns:WebService_CorreoSoap12">
+      <soap12:address location="https://localhost:44369/WebService_Correo.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,38 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block bread_title %}Cambiar Clave{% endblock %}
+{% block title %}Cambiar Clave{% endblock %}
+
+{% block contenido %}
+
+<section>
+{% if email != null %}
+    <p>
+        Se envio al correo {{email}} la clave de verificación.
+    </p>
+    <br>
+{% endif %}
+
+    <form action="{% url 'CambiarClaveFin' %}" method="POST"> {% csrf_token %}
+        <div class="form-group">
+          <label for="token">Clave Verificación</label>
+          <br>
+          <input class="form-control" name="token" id="token" placeholder="ABCDEF">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="pass1">Contraseña</label>
+          <input type="password" class="form-control" name="pass1" id="pass1" placeholder="">
+        </div>
+        <br>
+        <div class="form-group">
+          <label for="pass2">Repetir Contraseña</label>
+          <input type="password" class="form-control" name="pass2" id="pass2" placeholder="">
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Cambiar Clave</button>
+    </form>
+</section>
+
+{% endblock %}
